@@ -1,6 +1,9 @@
 import {Component} from 'react';
 import './App.css';
 
+import { Cardlist } from './components/card-list/card-list-component';
+
+
 class App extends Component{
   constructor(){
     super();
@@ -14,9 +17,12 @@ componentDidMount(){
     .then( response => response.json())
       .then(users => this.setState({monsters:users}));
 }
-  render(){
+
+
+render(){
     return(
     <div className="App">
+      <Cardlist name='Shahab'/>
       {
         this.state.monsters.map(monster => <h1 key={monster.id} >{monster.name}</h1>)
       }
