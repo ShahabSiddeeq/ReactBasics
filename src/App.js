@@ -22,10 +22,13 @@ componentDidMount(){
 render(){
     return(
     <div className="App">
-      <Cardlist name='Shahab'/>
+      <Cardlist name='Shahab'>
+      {/*access to props because we import whole object */}
       {
         this.state.monsters.map(monster => <h1 key={monster.id} >{monster.name}</h1>)
-      }
+      } 
+      </Cardlist>
+      
   </div>);
   }
 
