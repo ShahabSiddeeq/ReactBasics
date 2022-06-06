@@ -21,13 +21,17 @@ componentDidMount(){
 
 
 render(){
+    const {monsters,searchField} = this.state;
+    const filteredmonsters = monsters.filter( monster => 
+      monster.name.toLowerCase().includes(searchField.toLowerCase())
+    );
     return(
     <div className="App">
       <input type='search' placeholder='search monster' onChange={
         e => this.setState({searchField:e.target.value},
-          () => console.log(this.state))
+          () =>  console.log(this.state))
       }/>
-      <Cardlist monsters={this.state.monsters} />      
+      <Cardlist monsters={filteredmonsters} />      
   </div>);
   }
 
